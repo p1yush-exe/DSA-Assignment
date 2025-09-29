@@ -7,7 +7,7 @@ void traverse(int arr[], int size)
     cout<<"[";
     for(int i=0; i<size; ++i)
     {   
-        cout<<" ("<<i<<":)"<<arr[i];
+        cout<<" "<<arr[i];
     }   
     cout<<" ]"<<endl;
 }
@@ -29,33 +29,19 @@ void bubble_sort(int arr[], int size)
     }
 }
 
-int remove_duplicates_3loop(int arr[], int& size)
-{   
-
-    return size;
-}
-
-int remove_duplicates_2loop(int arr[], int& size)
-{   
-    
-    return size;
-}
-
-int remove_duplicates_(int arr[], int& size)
-{   
-    
-    return size;
-}
-
-int remove_duplicates_(int arr[], int& size)
-{   
-    
-    return size;
+void remove_duplicates_track(int arr[], int& size)
+{
+    if(size == 0) return;
+    int count = 1;
+    for(int i = 1; i < size; ++i)
+        if(arr[i] != arr[count-1])
+            arr[count++] = arr[i];
+    size = count;
 }
 
 int main()
 {
-    int arr[20] = { -15, 0, 23, -7, 8, 42, -3, 19, 0, -21, 5, 17, -9, 0, 34, -2, 11, -8, 27, 0 };
+    int arr[22] = { 209,-15, -15, 0, -2, 8, 42, -3, 19, 209, -21, 5, 17, 0, 17, 0, -2, 11, -8, 27, 0,-99 };
     int size=sizeof(arr)/sizeof(arr[0]);
 
     cout<<"The array is: ";
@@ -64,13 +50,13 @@ int main()
 
     bubble_sort(arr,size);
 
-    cout<<"The array is: ";
+    cout<<"The array after sorting is: ";
     traverse(arr,size);
     cout<<endl;
 
-    remove_duplicates(arr,size);
+    remove_duplicates_track(arr,size);
 
-    cout<<"The array is: ";
+    cout<<"The array after tracking duplicate removal is: ";
     traverse(arr,size);
     cout<<endl;
 

@@ -107,11 +107,39 @@ void insertion_sort(int arr[], int size)
     }
 }
 
-void binary_insertion_sort(int arr[], int size);
 
-void remove_duplicates(int arr[], int size)
+void binary_insertion_sort(int arr[], int size)
 {
-    
+    for(int i = 1; i < size; i++)
+    {
+        int element = arr[i];
+        int low = 0, high = i - 1;
+
+        while(low <= high)
+        {
+            int mid = low + (high - low) / 2;
+            if(arr[mid] <= element)
+                low = mid + 1;
+            else
+                high = mid - 1;
+        }
+
+        for(int j = i; j > low; --j)
+            arr[j] = arr[j - 1];
+
+        arr[low] = element;
+    }
+}
+
+
+void remove_duplicates(int arr[], int& size)
+{
+    if(size == 0) return;
+    int count = 1;
+    for(int i = 1; i < size; ++i)
+        if(arr[i] != arr[i-1])
+            arr[count++] = arr[i];
+    size = count;
 }
 
 void clean_array(int arr[],int size)
@@ -164,29 +192,6 @@ int binary_search_recur(int arr[],int size, int low, int high, int element)
         return binary_search_recur(arr, size, low, middle-1, element);
     }
     
-}
-
-void binary_insertion_sort(int arr[], int size)
-{
-    for(int i = 1; i < size; i++)
-    {
-        int element = arr[i];
-        int low = 0, high = i - 1;
-
-        while(low <= high)
-        {
-            int mid = low + (high - low) / 2;
-            if(arr[mid] <= element)
-                low = mid + 1;
-            else
-                high = mid - 1;
-        }
-
-        for(int j = i; j > low; --j)
-            arr[j] = arr[j - 1];
-
-        arr[low] = element;
-    }
 }
 
 int main()
