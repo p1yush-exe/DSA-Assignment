@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/TIET shit/DSA/DSA-Assignment",
-      "program": "d:/TIET shit/DSA/DSA-Assignment/build/Debug/outDebug",
+      "cwd": "d:/TIET shit/DSA/DSA-Assignment/assignment 1",
+      "program": "d:/TIET shit/DSA/DSA-Assignment/assignment 1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
